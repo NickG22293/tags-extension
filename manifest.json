@@ -1,0 +1,6 @@
+  {
+    "name": "Tags",
+    "version": "0.1",
+    "description": "Attach Tags to page elements for other users to view and vote on.",
+    "manifest_version": 2
+  }
