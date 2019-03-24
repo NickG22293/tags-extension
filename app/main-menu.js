@@ -1,15 +1,11 @@
-let mainMenu = document.getElementById('main-menu');
+const mainMenu = document.getElementById('main-menu');
+const loginBtn = document.getElementById('login-btn');
+const tagsBtn = document.getElementById('tags-btn');
 
-chrome.storage.sync.get('color', (data) => {
-    mainMenu.style.backgroundColor = data.color;
-    mainMenu.setAttribute('value', data.color);
-});
+loginBtn.onclick = (element) => {
+    // this is getting hit
+}
 
-mainMenu.onclick = (element) => {
-    let color = element.target.value;
-    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        chrome.tabs.executeScript(
-            tabs[0].id,
-            {code: 'document.body.style.backgroundColor = "' + color + '";'});
-    });
+tagsBtn.onclick = (element) => {
+    // this is getting hit
 };

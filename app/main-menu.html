@@ -1,0 +1,38 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        .menu {
+            display: block;
+            position: relative;
+            min-width: 100px;
+            z-index: 1;
+        }
+
+        .menu-item {
+            display: block;
+            color: black;
+            padding: 12px;
+            min-height: 20;
+            position: relative;
+            background-color: #eee;
+            text-decoration: none;
+        }
+
+        .menu-item:hover {
+            background-color: #ccc;
+        }
+      </style>
+    </head>
+    <body>
+        <div class="menu">
+            <div class="menu-item" id="tags-btn">
+                Show Tags
+            </div>
+            <div class="menu-item" id="login-btn">
+                Login
+            </div>
+        </div>
+        <script src="main-menu.js"></script>
+    </body>
+  </html>
