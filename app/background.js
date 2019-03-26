@@ -1,18 +1,28 @@
 /*
 * Nick Gordon - 2018
 */
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({ color: '#3aa757' }, () => {
-        console.log("The color is green.");
-    });
 
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
-        chrome.declarativeContent.onPageChanged.addRules([{
-            conditions: [new chrome.declarativeContent.PageStateMatcher({
-                pageUrl: { hostEquals: 'extensions' },
-            })
-            ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-        }]);
+const popup = function(word) {
+    console.log('popup');
+};
+
+const init = function() {
+    console.log('init');
+    chrome.contextMenus.create({
+        title: 'Create Tag',
+        type: 'normal',
+        contexts: ['all'],
+        // onclick: popup,
+        id: "tag-create"
     });
+}
+
+chrome.runtime.onInstalled.addListener(function() {
+  // When the app gets installed, perform setup
+  init();
+});
+
+chrome.contextMenus.onClicked.addListener(function(itemData) {
+  if (itemData.menuItemId == "tag-create")
+    console.log('event for cntxt menu');
 });
