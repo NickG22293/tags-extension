@@ -22,7 +22,14 @@ chrome.runtime.onInstalled.addListener(function() {
   init();
 });
 
-chrome.contextMenus.onClicked.addListener(function(itemData) {
-  if (itemData.menuItemId == "tag-create")
-    console.log('event for cntxt menu');
+chrome.contextMenus.onClicked.addListener(function(info) {
+    console.log(info);
+    if (info.menuItemId == "tag-create") {
+            console.log('Creating a Tag');
+            var tag = document.createElement('tag');
+            tag.type = 'text';
+            tag.setAttribute('style', 'width: 120px; height: 20px;');
+            const elements = document.querySelectorAll(':hover');
+            elements[0].appendChild(tag);
+    }
 });
